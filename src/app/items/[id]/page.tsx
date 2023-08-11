@@ -1,4 +1,5 @@
 import { api } from "@/app/api"
+import { Suspense } from "react"
 
 // export async function generateMetaData ({ params: { id } }: { params: { id: string } }):Metadata {
 //   const item = await api.item.fetch(id)
@@ -12,6 +13,11 @@ import { api } from "@/app/api"
 //   } 
 // }
 
+async function Description ({id}: {id: string}) {
+  const item = await api.item.fetch(id)
+  return <p>{item.description}</p>
+}
+
 async function Page ({ params: { id } }: { params: { id: string } }) {
   console.log(id)
   const item = await api.item.fetch(id)
@@ -21,7 +27,9 @@ async function Page ({ params: { id } }: { params: { id: string } }) {
     <img src={item.thumbnail} alt={item.title} />
     <h1>{item.title}</h1>
     <p className="font-bold">{Number(item.price).toLocaleString('es-AR', { style: 'currency', currency: item.currency_id })}</p>
-    <p>{item.description}</p>
+   <Suspense fallback={<span>Descrip...</span>}>
+      <Description id={id} />
+    </Suspense>
   </article>
 }
 

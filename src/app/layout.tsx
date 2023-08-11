@@ -18,7 +18,7 @@ export default function RootLayout ({
     <html lang="en">
       <body className={inter.className}>
         <header className='h-16 bg-yellow-300 px-4 flex'>
-          <form className='m-auto max-w-xl flex-1 flex items-center'>
+          <form action="/items" className='m-auto max-w-xl flex-1 flex items-center'>
             <input type="text" name="search" placeholder="Search" className='h-8 flex-1 px-2' />
             <button type="submit" className='bg-gray-300 px-2 py-2 text-slate-700'>Search</button>
           </form>

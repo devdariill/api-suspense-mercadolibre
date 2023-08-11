@@ -17,13 +17,13 @@ export default function RootLayout ({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className='h-16 bg-yellow-300 px-4 flex'>
-          <form action="/items" className='m-auto max-w-xl flex-1 flex items-center'>
+        <header className='h-16 bg-yellow-300 flex'>
+          <form action="/items" className='m-auto max-w-xl flex-1 flex items-center px-4'>
             <input type="text" name="search" placeholder="Search" className='h-8 flex-1 px-2' />
             <button type="submit" className='bg-gray-300 px-2 py-2 text-slate-700'>Search</button>
           </form>
         </header>
-        <main className='max-w-screen-xl p-4'>{children}</main>
+        <main className='max-w-screen-lg p-4 m-auto'>{children}</main>
       </body>
     </html>
   )

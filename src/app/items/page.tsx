@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { api } from '../api'
 
 // https://api.mercadolibre.com/sites/MLA/search?q=iphone&limit=4
 interface Item {
@@ -14,9 +15,7 @@ interface Item {
   }
 }
 async function Page ({ searchParams }: { searchParams: { search: string } }) {
-  const { results } = await fetch(
-    `https://api.mercadolibre.com/sites/MLA/search?q=${searchParams.search}&limit=4`
-  ).then(async (res) => await res.json())
+  const { results } = await api.search(searchParams.search)
   console.log(results)
   return (
     <section>

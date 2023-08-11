@@ -1,5 +1,17 @@
 import { api } from "@/app/api"
 
+// export async function generateMetaData ({ params: { id } }: { params: { id: string } }):Metadata {
+//   const item = await api.item.fetch(id)
+
+//   return {
+//     title: item.title,
+//     description: item.description,
+//     openGraph:{
+//       images:[item.thumbnail]
+//     }
+//   } 
+// }
+
 async function Page ({ params: { id } }: { params: { id: string } }) {
   console.log(id)
   const item = await api.item.fetch(id)
